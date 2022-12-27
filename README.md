@@ -8,6 +8,12 @@ It is realised for the electromechanical engineering course Robotics 2 of the VU
 ## Release date
 27-12-2022
 
+## Screenshots
+- RViz simulation:
+<img src="pictures/rviz.jpg" width=1000>
+- Gazebo simulation:
+<img src="spictures/gazebo.jpg" width=1000>
+
 ## Deployment
 
 ### RVIZ without control
