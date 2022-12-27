@@ -12,9 +12,9 @@ It is realised for the electromechanical engineering course Robotics 2 of the VU
 - CAD of DiLoMo in Soliworks:
 <img src="cad.png" width=1000>
 - RViz simulation:
-<img src="rviz.jpg" width=1000>
+<img src="rviz.jpg" width=500>
 - Gazebo simulation:
-<img src="gazebo.jpg" width=1000>
+<img src="gazebo.jpg" width=500>
 
 ## Deployment
 
