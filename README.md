@@ -9,13 +9,13 @@ It is realised for the electromechanical engineering course Robotics 2 of the VU
 27-12-2022
 
 #Members
-Mohammedjavad Rahimi Dolatabad
-Yiming Yuan
-Louise Massager
-Dinh-Hao Nguyen
+:boy: Mohammedjavad Rahimi Dolatabad
+:boy: Yiming Yuan
+:girl: Louise Massager
+:boy: Dinh-Hao Nguyen
 
 ## Prerequisites
-[-] Python3 <br />
-[-] ROS Noetic <br />
-[-] Gazebo <br />
-[-] RViz <br />
+- Python3 <br />
+- ROS Noetic <br />
+- Gazebo <br />
+- RViz <br />
