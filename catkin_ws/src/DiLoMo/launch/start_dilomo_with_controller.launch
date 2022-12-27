@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+
+    <include file="$(find DiLoMo)/launch/spawn_dilomo.launch"/>
+    <include file="$(find DiLoMo)/launch/dilomo_joint_controller.launch"/>
+
+</launch>

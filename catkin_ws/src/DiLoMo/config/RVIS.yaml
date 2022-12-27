@@ -1,0 +1,143 @@
+dilomo:
+
+    # Publish all joint states
+    joint_state_controller:
+      type: joint_state_controller/JointStateController
+      publish_rate: 50
+
+    # Position controllers
+
+    arm_left_joint_1_position_controller:
+      type: effort_controllers/JointPositionController
+      joint: arm_left_joint_1
+      pid: {p: 100.0, i: 1.0, d: 0.0}
+
+    arm_left_joint_2_position_controller:
+      type: effort_controllers/JointPositionController
+      joint: arm_left_joint_2
+      pid: {p: 10.0, i: 1.0, d: 0.0}
+
+    arm_left_joint_3_position_controller:
+      type: effort_controllers/JointPositionController
+      joint: arm_left_joint_3
+      pid: {p: 10.0, i: 1.0, d: 0.0}
+
+    arm_left_joint_4_position_controller:
+      type: effort_controllers/JointPositionController
+      joint: arm_left_joint_4
+      pid: {p: 10.0, i: 1.0, d: 0.0}
+
+    arm_left_joint_5_position_controller:
+      type: effort_controllers/JointPositionController
+      joint: arm_left_joint_5
+      pid: {p: 10.0, i: 1.0, d: 0.0}
+
+    arm_left_joint_6_position_controller:
+      type: effort_controllers/JointPositionController
+      joint: arm_left_joint_6
+      pid: {p: 10.0, i: 1.0, d: 0.0}
+
+    arm_left_joint_7_position_controller:
+      type: effort_controllers/JointPositionController
+      joint: arm_left_joint_7
+      pid: {p: 10.0, i: 1.0, d: 0.0}
+
+    arm_right_joint_1_position_controller:
+      type: effort_controllers/JointPositionController
+      joint: arm_right_joint_1
+      pid: {p: 100.0, i: 1.0, d: 0.0}
+
+    arm_right_joint_2_position_controller:
+      type: effort_controllers/JointPositionController
+      joint: arm_right_joint_2
+      pid: {p: 10.0, i: 1.0, d: 0.0}
+
+    arm_right_joint_3_position_controller:
+      type: effort_controllers/JointPositionController
+      joint: arm_right_joint_3
+      pid: {p: 10.0, i: 1.0, d: 0.0}
+
+    arm_right_joint_4_position_controller:
+      type: effort_controllers/JointPositionController
+      joint: arm_right_joint_4
+      pid: {p: 10.0, i: 1.0, d: 0.0}
+
+    arm_right_joint_5_position_controller:
+      type: effort_controllers/JointPositionController
+      joint: arm_right_joint_5
+      pid: {p: 10.0, i: 1.0, d: 0.0}
+
+    arm_right_joint_6_position_controller:
+      type: effort_controllers/JointPositionController
+      joint: arm_right_joint_6
+      pid: {p: 10.0, i: 1.0, d: 0.0}
+
+    arm_right_joint_7_position_controller:
+      type: effort_controllers/JointPositionController
+      joint: arm_right_joint_7
+      pid: {p: 10.0, i: 1.0, d: 0.0}
+
+    leg_left_joint_1_position_controller:
+      type: effort_controllers/JointPositionController
+      joint: leg_left_joint_1
+      pid: {p: 50.0, i: 1.0, d: 0.0}
+
+    leg_left_joint_2_position_controller:
+      type: effort_controllers/JointPositionController
+      joint: leg_left_joint_2
+      pid: {p: 100.0, i: 1.0, d: 0.0}
+
+    leg_left_joint_3_position_controller:
+      type: velocity_controllers/JointPositionController
+      joint: leg_left_joint_3
+      pid: {p: 10.0, i: 0.01, d: 1.0}
+
+    leg_left_joint_4_position_controller:
+      type: effort_controllers/JointPositionController
+      joint: leg_left_joint_4
+      pid: {p: 10.0, i: 1.0, d: 0.0}
+
+    leg_left_joint_5_position_controller:
+      type: effort_controllers/JointPositionController
+      joint: leg_left_joint_5
+      pid: {p: 10.0, i: 1.0, d: 0.0}
+
+    leg_right_joint_1_position_controller:
+      type: effort_controllers/JointPositionController
+      joint: leg_right_joint_1
+      pid: {p: 50.0, i: 1.0, d: 0.0}
+
+    leg_right_joint_2_position_controller:
+      type: effort_controllers/JointPositionController
+      joint: leg_right_joint_2
+      pid: {p: 100.0, i: 1.0, d: 0.0}
+
+    leg_right_joint_3_position_controller:
+      type: velocity_controllers/JointPositionController
+      joint: leg_right_joint_3
+      pid: {p: 10.0, i: 0.01, d: 1.0}
+
+    leg_right_joint_4_position_controller:
+      type: effort_controllers/JointPositionController
+      joint: leg_right_joint_4
+      pid: {p: 10.0, i: 1.0, d: 0.0}
+
+    leg_right_joint_5_position_controller:
+      type: effort_controllers/JointPositionController
+      joint: leg_right_joint_5
+      pid: {p: 10.0, i: 1.0, d: 0.0}
+
+    body_joint_position_controller:
+      type: effort_controllers/JointPositionController
+      joint: body_joint
+      pid: {p: 10.0, i: 1.0, d: 0.0}
+
+    neck_joint_position_controller:
+      type: effort_controllers/JointPositionController
+      joint: neck_joint
+      pid: {p: 10.0, i: 1.0, d: 0.0}
+
+    head_joint_position_controller:
+      type: effort_controllers/JointPositionController
+      joint: head_joint
+      pid: {p: 10.0, i: 1.0, d: 0.0}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+
+    <include file="$(find DiLoMo)/launch/spawn_urdf.launch">
+        <arg name="x" value="0.0" />
+        <arg name="y" value="0.0" />
+        <arg name="z" value="0.23175" /> <!-- spawn altitude of the robot -->
+        <arg name="urdf_robot_file" value="$(find DiLoMo)/urdf/dilomo.urdf" />
+        <arg name="robot_name" value="dilomo" />
+    </include>
+
+</launch>
+
