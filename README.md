@@ -10,7 +10,7 @@ It is realised for the electromechanical engineering course Robotics 2 of the VU
 
 ## Screenshots
 - CAD of DiLoMo in Soliworks:
-<img src="pictures/cad.jpg" width=1000>
+<img src="pictures/cad.png" width=1000>
 - RViz simulation:
 <img src="pictures/rviz.jpg" width=1000>
 - Gazebo simulation:
