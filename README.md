@@ -8,11 +8,11 @@ It is realised for the electromechanical engineering course Robotics 2 of the VU
 ## Release date
 27-12-2022
 
-#Members
-:boy: Mohammedjavad Rahimi Dolatabad
-:boy: Yiming Yuan
-:girl: Louise Massager
-:boy: Dinh-Hao Nguyen
+## Members
+:boy: Mohammedjavad Rahimi Dolatabad <br />
+:boy: Yiming Yuan <br />
+:girl: Louise Massager <br />
+:boy: Dinh-Hao Nguyen <br />
 
 ## Prerequisites
 - Python3 <br />
