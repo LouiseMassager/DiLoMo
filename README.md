@@ -9,6 +9,8 @@ It is realised for the electromechanical engineering course Robotics 2 of the VU
 27-12-2022
 
 ## Screenshots
+- CAD of DiLoMo in Soliworks:
+<img src="pictures/cad.jpg" width=1000>
 - RViz simulation:
 <img src="pictures/rviz.jpg" width=1000>
 - Gazebo simulation:
