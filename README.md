@@ -55,7 +55,7 @@ source devel/setup.bash
 rosrun DiLoMo mingo_is_controlling.py
 ```
 
-Finally, the robot must be re-spawn in Gazebo (as to get back on its feet). It can be done by either resetting the Gazebo simulation (CTRL+shift+R in Gazebo) or with the use of a service:
+Finally, the robot must be re-spawn in Gazebo (as to get back on its feet). It can be done by either resetting the robot pose (CTRL+shift+R in Gazebo) or with the use of a service:
 ```bash
 cd ~/catkin_ws
 source devel/setup.bash
