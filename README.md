@@ -24,14 +24,8 @@ source devel/setup.bash
 roslaunch DiLoMo rviz_visualize.launch model:='$(find DiLoMo)/urdf/dilomo.urdf'
 ```
 ### RVIZ and Gazebo with control
-In a first terminal, write the following command to open RViz:
 
-```bash
-cd ~/catkin_ws
-source devel/setup.bash
-roslaunch DiLoMo rviz_control.launch model:='$(find DiLoMo)/urdf/dilomo.urdf'
-```
-In a second terminal, write the following command to open Gazebo:
+In a first terminal, write the following command to open Gazebo:
 
 ```bash
 cd ~/catkin_ws
@@ -39,11 +33,19 @@ source devel/setup.bash
 roslaunch simulation_gazebo main.launch
 ```
 
-To spawn the DiLoMo robot, write in a third terminal:
+To spawn the DiLoMo robot, write in a second terminal:
 ```bash
 cd ~/catkin_ws
 source devel/setup.bash
 roslaunch DiLoMo start_dilomo_with_controller.launch
+```
+
+In a third terminal, write the following command to open RViz:
+
+```bash
+cd ~/catkin_ws
+source devel/setup.bash
+roslaunch DiLoMo rviz_control.launch model:='$(find DiLoMo)/urdf/dilomo.urdf'
 ```
 
 To control in RViz and Gazebo, the following commands must be put in a  fourth terminal:
