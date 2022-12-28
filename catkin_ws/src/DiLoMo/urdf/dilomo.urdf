@@ -1,0 +1,1634 @@
+<?xml version="1.0"?>
+
+<robot name="dilomo">
+
+
+    <!-- * * * Color Definitions (in RViz) * * * -->
+
+    <material name="green">
+        <color rgba="0 0.8 0 1"/>
+    </material>
+    <material name="red">
+        <color rgba="0.8 0 0 1"/>
+    </material>
+    <material name="yellow">
+        <color rgba="1 1 0 1"/>
+    </material>
+    <material name="blue">
+        <color rgba="0 0 0.8 1"/>
+    </material>
+    <material name="white">
+        <color rgba="1 1 1 1"/>
+    </material>
+    <material name="grey">
+        <color rgba="0.75 0.75 0.75 1"/>
+    </material>
+
+
+    <!-- * * * Linking Gazebo and ROS * * * -->
+    
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/dilomo</robotNamespace>
+        </plugin>
+    </gazebo>
+
+    <!-- * * * Base_link * * * -->
+
+    <link name="base_link">
+    </link>
+
+
+
+    <!-- * * * Link Definitions * * * -->
+
+
+    <link name="body_top_link">
+
+        <inertial>
+            <origin xyz="-0.00335 0 -0.00444" rpy="0 0 0"/>
+            <mass value="0.67572" />
+            <inertia ixx="0.000735533" ixy="0.0" ixz="-0.0000011717" iyy="0.000496581" iyz="0.0" izz="0.000846836"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part01.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part01.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+
+    </link>
+
+    <gazebo reference="body_top_link">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Red</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+
+    <link name="body_bottom_link">
+
+        <inertial>
+            <origin xyz="0.00699 0 -0.02203" rpy="0 0 0"/>
+            <mass value="0.24827" />
+            <inertia ixx="0.000096452" ixy="0.0" ixz="-0.000016998" iyy="0.000123576" iyz="0.0" izz="0.000101961"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part02.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part02.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+
+    </link>
+
+    <gazebo reference="body_bottom_link">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Red</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+
+    <link name="head_link">
+
+        <inertial>
+            <origin xyz="-0.00008 0 0.00893" rpy="0 0 0"/>
+            <mass value="0.05056" />
+            <inertia ixx="0.000006514" ixy="0.0" ixz="-0.00000001997" iyy="0.000005159" iyz="0.0" izz="0.000005948"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part16.STL" scale="0.0008 0.0008 0.0008"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part16.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+
+    </link>
+
+    <gazebo reference="head_link">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Red</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+
+    <link name="eye_left_link">
+
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.00007" />
+            <inertia ixx="0.00000000016" ixy="0.0" ixz="0.0" iyy="0.00000000016" iyz="0.0" izz="0.00000000016"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part17.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part17.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="yellow"/>
+        </visual>
+
+    </link>
+
+    <gazebo reference="eye_left_link">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Yellow</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+
+    <link name="eye_right_link">
+
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.00007" />
+            <inertia ixx="0.00000000016" ixy="0.0" ixz="0.0" iyy="0.00000000016" iyz="0.0" izz="0.00000000016"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part17.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part17.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="yellow"/>
+        </visual>
+
+    </link>
+
+    <gazebo reference="eye_right_link">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Yellow</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+
+    <link name="neck_link">
+
+        <inertial>
+            <origin xyz="0.01386 -0.015 0.0127" rpy="0 0 0"/>
+            <mass value="0.01820" />
+            <inertia ixx="0.000006321" ixy="0.0" ixz="-0.000003072" iyy="0.000010206" iyz="0.0" izz="0.000006380"/>
+        </inertial>
+
+        <!--<collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part10.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>-->
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part10.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="yellow"/>
+        </visual>
+
+    </link>
+
+    <gazebo reference="neck_link">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Yellow</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+
+    <link name="arm_left_link_1">
+
+        <inertial>
+            <origin xyz="-0.00199 -0.00008 0.00942" rpy="0 0 0"/>
+            <mass value="0.03907" />
+            <inertia ixx="0.000004523" ixy="0.0" ixz="0.0" iyy="0.000002930" iyz="0.0" izz="0.000005084"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part03.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part03.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+
+    </link>
+
+    <gazebo reference="arm_left_link_1">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Red</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    
+    <link name="arm_left_link_2">
+
+        <inertial>
+            <origin xyz="-0.00101 0.00713 -0.00357" rpy="0 0 0"/>
+            <mass value="0.03907" />
+            <inertia ixx="0.000003353" ixy="0.0" ixz="0.0" iyy="0.000004575" iyz="-0.0000002207" izz="0.000003992"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part04.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part04.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+
+    </link>
+
+    <gazebo reference="arm_left_link_2">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Red</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+
+    <link name="arm_left_link_3">
+
+        <inertial>
+            <origin xyz="-0.014 0 -0.02103" rpy="0 0 0"/>
+            <mass value="0.04065" />
+            <inertia ixx="0.000004142" ixy="0.0" ixz="0.0" iyy="0.000005683" iyz="0.0" izz="0.000004268"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part05.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part05.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="yellow"/>
+        </visual>
+
+    </link>
+
+    <gazebo reference="arm_left_link_3">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Yellow</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+
+    <link name="arm_left_link_4">
+
+        <inertial>
+            <origin xyz="0.00043 0 -0.00852" rpy="0 0 0"/>
+            <mass value="0.03443" />
+            <inertia ixx="0.000003455" ixy="0.0" ixz="-0.0000001479" iyy="0.000003078" iyz="0.0" izz="0.000003009"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part06.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part06.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+
+    </link>
+
+    <gazebo reference="arm_left_link_4">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Red</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+
+    <link name="arm_left_link_5">
+
+        <inertial>
+            <origin xyz="0.02173 0.012 0.0022" rpy="0 0 0"/>
+            <mass value="0.02147" />
+            <inertia ixx="0.000003149" ixy="0.0" ixz="0.000000109" iyy="0.000006005" iyz="0.0" izz="0.000006918"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part07.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part07.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="yellow"/>
+        </visual>
+
+    </link>
+
+    <gazebo reference="arm_left_link_5">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Yellow</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+
+    <link name="arm_left_link_6">
+
+        <inertial>
+            <origin xyz="0.00114 -0.0105 0" rpy="0 0 0"/>
+            <mass value="0.03227" />
+            <inertia ixx="0.000002778" ixy="0.0" ixz="0.0" iyy="0.000003006" iyz="0.0" izz="0.000002614"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part08.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part08.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+
+    </link>
+
+    <gazebo reference="arm_left_link_6">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Red</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+
+    <link name="arm_left_link_7">
+
+        <inertial>
+            <origin xyz="0.00575 0 0" rpy="0 0 0"/>
+            <mass value="0.00743" />
+            <inertia ixx="0.0000007317" ixy="0.0" ixz="0.0" iyy="0.0000003449" iyz="0.0" izz="0.0000007829"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part09.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part09.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="yellow"/>
+        </visual>
+
+    </link>
+
+    <gazebo reference="arm_left_link_7">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Yellow</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+
+    <link name="arm_right_link_1">
+
+        <inertial>
+            <origin xyz="-0.00199 0.00008 0.00942" rpy="0 0 0"/>
+            <mass value="0.03907" />
+            <inertia ixx="0.000004523" ixy="0.0" ixz="-0.0" iyy="0.000002930" iyz="0.0" izz="0.000005084"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part03bis.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part03bis.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+
+    </link>
+
+    <gazebo reference="arm_right_link_1">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Red</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    
+    <link name="arm_right_link_2">
+
+        <inertial>
+            <origin xyz="-0.00101 -0.00713 -0.00357" rpy="0 0 0"/>
+            <mass value="0.03907" />
+            <inertia ixx="0.000003353" ixy="0.0" ixz="0.0" iyy="0.000004575" iyz="0.0000002207" izz="0.000003992"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part04bis.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part04bis.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+
+    </link>
+
+    <gazebo reference="arm_right_link_2">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Red</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+
+    <link name="arm_right_link_3">
+
+        <inertial>
+            <origin xyz="-0.014 0 -0.02103" rpy="0 0 0"/>
+            <mass value="0.04065" />
+            <inertia ixx="0.000004142" ixy="0.0" ixz="0.0" iyy="0.000005683" iyz="0.0" izz="0.000004268"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part05.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part05.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="yellow"/>
+        </visual>
+
+    </link>
+
+    <gazebo reference="arm_right_link_3">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Yellow</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+
+    <link name="arm_right_link_4">
+
+        <inertial>
+            <origin xyz="0.00043 0 -0.00852" rpy="0 0 0"/>
+            <mass value="0.03443" />
+            <inertia ixx="0.000003455" ixy="0.0" ixz="-0.0000001479" iyy="0.000003078" iyz="0.0" izz="0.000003009"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part06.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part06.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+
+    </link>
+
+    <gazebo reference="arm_right_link_4">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Red</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+
+    <link name="arm_right_link_5">
+
+        <inertial>
+            <origin xyz="0.02173 0.012 0.0022" rpy="0 0 0"/>
+            <mass value="0.02147" />
+            <inertia ixx="0.000003149" ixy="0.0" ixz="0.000000109" iyy="0.000006005" iyz="0.0" izz="0.000006918"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part07.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part07.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="yellow"/>
+        </visual>
+
+    </link>
+
+    <gazebo reference="arm_right_link_5">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Yellow</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+
+    <link name="arm_right_link_6">
+
+        <inertial>
+            <origin xyz="0.00114 -0.0105 0" rpy="0 0 0"/>
+            <mass value="0.03227" />
+            <inertia ixx="0.000002778" ixy="0.0" ixz="0.0" iyy="0.000003006" iyz="0.0" izz="0.000002614"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part08.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part08.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+
+    </link>
+
+    <gazebo reference="arm_right_link_6">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Red</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+
+    <link name="arm_right_link_7">
+
+        <inertial>
+            <origin xyz="0.00575 0 0" rpy="0 0 0"/>
+            <mass value="0.00743" />
+            <inertia ixx="0.0000007317" ixy="0.0" ixz="0.0" iyy="0.0000003449" iyz="0.0" izz="0.0000007829"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part09.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part09.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="yellow"/>
+        </visual>
+
+    </link>
+
+    <gazebo reference="arm_right_link_7">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Yellow</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+
+    <link name="leg_left_link_1">
+
+        <inertial>
+            <origin xyz="0.00014 0.00042 0.01125" rpy="0 0 0"/>
+            <mass value="0.03097" />
+            <inertia ixx="0.000002657" ixy="0.00000005929" ixz="0.0" iyy="0.000002491" iyz="0.0" izz="0.000002542"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part11.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part11.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="yellow"/>
+        </visual>
+
+    </link>
+
+    <gazebo reference="leg_left_link_1">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Yellow</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+
+    <link name="leg_left_link_2">
+
+        <inertial>
+            <origin xyz="0.00075 0.00690 -0.03026" rpy="0 0 0"/>
+            <mass value="0.1609" />
+            <inertia ixx="0.000177979" ixy="0.0" ixz="0.00000001232" iyy="0.000178965" iyz="-0.0000009384" izz="0.000014469"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part12.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part12.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+
+    </link>
+
+    <gazebo reference="leg_left_link_2">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Red</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+
+    <link name="leg_left_link_3">
+
+        <inertial>
+            <origin xyz="0.00031 -0.011 0.01625" rpy="0 0 0"/>
+            <mass value="0.07509" />
+            <inertia ixx="0.000051978" ixy="0.0" ixz="-0.0000007536" iyy="0.000052646" iyz="0.0" izz="0.000015364"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part13.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part13.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="yellow"/>
+        </visual>
+
+    </link>
+
+    <gazebo reference="leg_left_link_3">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Yellow</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+
+    <link name="leg_left_link_4">
+
+        <inertial>
+            <origin xyz="-0.00244 0.014 -0.04604" rpy="0 0 0"/>
+            <mass value="0.16224" />
+            <inertia ixx="0.000072232" ixy="0.0" ixz="0.000012026" iyy="0.000070628" iyz="0.0" izz="0.000028557"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part14.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part14.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+
+    </link>
+
+    <gazebo reference="leg_left_link_4">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Red</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+
+    <link name="leg_left_link_5">
+
+        <inertial>
+            <origin xyz="0.0082 -0.017 -0.02483" rpy="0 0 0"/>
+            <mass value="0.1517" />
+            <inertia ixx="0.000032196" ixy="0.0" ixz="-0.000002507" iyy="0.000074530" iyz="0.0" izz="0.000092246"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part15.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part15.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="yellow"/>
+        </visual>
+
+    </link>
+
+    <gazebo reference="leg_left_link_5">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Yellow</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+
+    <link name="leg_right_link_1">
+
+        <inertial>
+            <origin xyz="0.00014 -0.00042 0.01125" rpy="0 0 0"/>
+            <mass value="0.03097" />
+            <inertia ixx="0.000002657" ixy="-0.00000005929" ixz="0.0" iyy="0.000002491" iyz="0.0" izz="0.000002542"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part11bis.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part11bis.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="yellow"/>
+        </visual>
+
+    </link>
+
+    <gazebo reference="leg_right_link_1">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Yellow</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+
+    <link name="leg_right_link_2">
+
+        <inertial>
+            <origin xyz="0.00075 -0.00690 -0.03026" rpy="0 0 0"/>
+            <mass value="0.1609" />
+            <inertia ixx="0.000177979" ixy="0.0" ixz="0.00000001232" iyy="0.000178965" iyz="-0.0000009384" izz="0.000014469"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part12bis.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part12bis.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+
+    </link>
+
+    <gazebo reference="leg_right_link_2">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Red</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+
+    <link name="leg_right_link_3">
+
+        <inertial>
+            <origin xyz="0.00031 -0.011 0.01625" rpy="0 0 0"/>
+            <mass value="0.07509" />
+            <inertia ixx="0.000051978" ixy="0.0" ixz="-0.0000007536" iyy="0.000052646" iyz="0.0" izz="0.000015364"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part13.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part13.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="yellow"/>
+        </visual>
+
+    </link>
+
+    <gazebo reference="leg_right_link_3">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Yellow</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+
+    <link name="leg_right_link_4">
+
+        <inertial>
+            <origin xyz="-0.00244 0.014 -0.04604" rpy="0 0 0"/>
+            <mass value="0.16224" />
+            <inertia ixx="0.000072232" ixy="0.0" ixz="0.000012026" iyy="0.0000706285" iyz="0.0" izz="0.000028557"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part14.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part14.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+
+    </link>
+
+    <gazebo reference="leg_right_link_4">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Red</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+
+    <link name="leg_right_link_5">
+
+        <inertial>
+            <origin xyz="0.0082 -0.017 -0.02483" rpy="0 0 0"/>
+            <mass value="0.1517" />
+            <inertia ixx="0.000032196" ixy="0.0" ixz="-0.000002507" iyy="0.000074530" iyz="0.0" izz="0.000092246"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part15.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://DiLoMo/models/Part15.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="yellow"/>
+        </visual>
+
+    </link>
+
+    <gazebo reference="leg_right_link_5">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Yellow</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <!-- * * * Base Joint * * * -->
+    
+    <joint name="base_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="body_bottom_link"/>
+        <origin xyz="0.0 0 0.0" rpy="0 0 0"/>
+    </joint>
+
+    <!-- * * * Joint Definitions * * * -->
+
+    <joint name="arm_left_joint_1" type="revolute">
+        <parent link="body_top_link"/>
+        <child link="arm_left_link_1"/>
+        <origin xyz="-0.01 0.04 0.01 " rpy="0 0 0"/>
+        <limit lower="0" upper="1.57" effort="10" velocity="0.005"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <joint name="arm_left_joint_2" type="revolute">
+        <parent link="arm_left_link_1"/>
+        <child link="arm_left_link_2"/>
+        <origin xyz="-0.002 0.021 0.0095" rpy="0 0 0"/>
+        <limit lower="-3.14" upper="0.79" effort="10" velocity="0.005"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <joint name="arm_left_joint_3" type="revolute">
+        <parent link="arm_left_link_2"/>
+        <child link="arm_left_link_3"/>
+        <origin xyz="0.013 0.0095 -0.0095" rpy="0 0 0"/>
+        <limit lower="0" upper="1.57" effort="0.25" velocity="0.005"/>
+        <axis xyz="1 0 0"/>
+    </joint>
+
+    <joint name="arm_left_joint_4" type="revolute">
+        <parent link="arm_left_link_3"/>
+        <child link="arm_left_link_4"/>
+        <origin xyz="-0.014 0 -0.041" rpy="0 0 0"/>
+        <limit lower="-1.57" upper="1.57" effort="0.1" velocity="0.005"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <joint name="arm_left_joint_5" type="revolute">
+        <parent link="arm_left_link_4"/>
+        <child link="arm_left_link_5"/>
+        <origin xyz="0.0025 -0.012 -0.015" rpy="0 0 0"/>
+        <limit lower="0" upper="1.57" effort="0.25" velocity="0.005"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <joint name="arm_left_joint_6" type="revolute">
+        <parent link="arm_left_link_5"/>
+        <child link="arm_left_link_6"/>
+        <origin xyz="0.053 0.0225 0.0025" rpy="0 0 0"/>
+        <limit lower="-3.14" upper="3.14" effort="0.1" velocity="0.005"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <joint name="arm_left_joint_7" type="continuous">
+        <parent link="arm_left_link_6"/>
+        <child link="arm_left_link_7"/>
+        <origin xyz="0.017 -0.0105 0" rpy="0 0 0"/>
+        <limit effort="0.1" velocity="0.005"/>
+        <axis xyz="1 0 0"/>
+    </joint>
+
+    <joint name="arm_right_joint_1" type="revolute">
+        <parent link="body_top_link"/>
+        <child link="arm_right_link_1"/>
+        <origin xyz="-0.01 -0.04 0.01 " rpy="0 0 0"/>
+        <limit lower="-1.57" upper="0" effort="10" velocity="0.005"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <joint name="arm_right_joint_2" type="revolute">
+        <parent link="arm_right_link_1"/>
+        <child link="arm_right_link_2"/>
+        <origin xyz="-0.002 -0.021 0.0095" rpy="0 0 0"/>
+        <limit lower="-3.14" upper="0.79" effort="10" velocity="0.005"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <joint name="arm_right_joint_3" type="revolute">
+        <parent link="arm_right_link_2"/>
+        <child link="arm_right_link_3"/>
+        <origin xyz="0.013 -0.0095 -0.0095" rpy="0 0 0"/>
+        <limit lower="-1.57" upper="0" effort="0.25" velocity="0.005"/>
+        <axis xyz="1 0 0"/>
+    </joint>
+    
+        <joint name="arm_right_joint_4" type="revolute">
+        <parent link="arm_right_link_3"/>
+        <child link="arm_right_link_4"/>
+        <origin xyz="-0.014 0 -0.041" rpy="0 0 0"/>
+        <limit lower="-1.57" upper="1.57" effort="0.1" velocity="0.005"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <joint name="arm_right_joint_5" type="revolute">
+        <parent link="arm_right_link_4"/>
+        <child link="arm_right_link_5"/>
+        <origin xyz="0.0025 -0.012 -0.015" rpy="0 0 0"/>
+        <limit lower="0" upper="1.57" effort="0.25" velocity="0.005"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <joint name="arm_right_joint_6" type="revolute">
+        <parent link="arm_right_link_5"/>
+        <child link="arm_right_link_6"/>
+        <origin xyz="0.053 0.0225 0.0025" rpy="0 0 0"/>
+        <limit lower="-3.14" upper="3.14" effort="0.1" velocity="0.005"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <joint name="arm_right_joint_7" type="continuous">
+        <parent link="arm_right_link_6"/>
+        <child link="arm_right_link_7"/>
+        <origin xyz="0.017 -0.0105 0" rpy="0 0 0"/>
+        <limit effort="0.1" velocity="0.01"/>
+        <axis xyz="1 0 0"/>
+    </joint>
+
+    <joint name="body_joint" type="revolute">
+        <parent link="body_bottom_link"/>
+        <child link="body_top_link"/>
+        <origin xyz="0.005 0 0.03" rpy="0 0 0"/>
+        <limit lower="-1.05" upper="1.05" effort="0.25" velocity="0.005"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <joint name="leg_left_joint_1" type="revolute">
+        <parent link="body_bottom_link"/>
+        <child link="leg_left_link_1"/>
+        <origin xyz="0 0.014 -0.0505" rpy="0 0 0"/>
+        <limit lower="-0.17" upper="1.05" effort="5" velocity="0.005"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <joint name="leg_left_joint_2" type="revolute">
+        <parent link="leg_left_link_1"/>
+        <child link="leg_left_link_2"/>
+        <origin xyz="0.0045 0.018 0.01125" rpy="0 0 0"/>
+        <limit lower="-1.57" upper="1.57" effort="10" velocity="0.005"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <joint name="leg_left_joint_3" type="prismatic">
+        <parent link="leg_left_link_2"/>
+        <child link="leg_left_link_3"/>
+        <origin xyz="0.00075 0.018 -0.0765" rpy="0 0 0"/>
+        <limit lower="-0.015" upper="0" effort="2.0" velocity="0.005"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <joint name="leg_left_joint_4" type="revolute">
+        <parent link="leg_left_link_3"/>
+        <child link="leg_left_link_4"/>
+        <origin xyz="-0.003 -0.025 -0.011" rpy="0 0 0"/>
+        <limit lower="0" upper="2.10" effort="0.5" velocity="0.005"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <joint name="leg_left_joint_5" type="revolute">
+        <parent link="leg_left_link_4"/>
+        <child link="leg_left_link_5"/>
+        <origin xyz="-0.008 0.031 -0.071" rpy="0 0 0"/>
+        <limit lower="-1.05" upper="1.31" effort="1.25" velocity="0.005"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <joint name="leg_right_joint_1" type="revolute">
+        <parent link="body_bottom_link"/>
+        <child link="leg_right_link_1"/>
+        <origin xyz="0 -0.014 -0.0505" rpy="0 0 0"/>
+        <limit lower="-1.05" upper="0.17" effort="5" velocity="0.005"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <joint name="leg_right_joint_2" type="revolute">
+        <parent link="leg_right_link_1"/>
+        <child link="leg_right_link_2"/>
+        <origin xyz="0.0045 -0.018 0.01125" rpy="0 0 0"/>
+        <limit lower="-1.57" upper="1.57" effort="10" velocity="0.005"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <joint name="leg_right_joint_3" type="prismatic">
+        <parent link="leg_right_link_2"/>
+        <child link="leg_right_link_3"/>
+        <origin xyz="0.00075 0.004 -0.0765" rpy="0 0 0"/>
+        <limit lower="-0.015" upper="0" effort="2.0" velocity="0.005"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <joint name="leg_right_joint_4" type="revolute">
+        <parent link="leg_right_link_3"/>
+        <child link="leg_right_link_4"/>
+        <origin xyz="-0.003 -0.025 -0.011" rpy="0 0 0"/>
+        <limit lower="0" upper="2.10" effort="0.5" velocity="0.005"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <joint name="leg_right_joint_5" type="revolute">
+        <parent link="leg_right_link_4"/>
+        <child link="leg_right_link_5"/>
+        <origin xyz="-0.008 0.031 -0.071" rpy="0 0 0"/>
+        <limit lower="-1.05" upper="1.31" effort="1.25" velocity="0.005"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <joint name="neck_joint" type="revolute">
+        <parent link="body_top_link"/>
+        <child link="neck_link"/>
+        <origin xyz="-0.0352 0.015 0.031" rpy="0 0 0"/>
+        <limit lower="0" upper="1.57" effort="0.1" velocity="0.005"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <joint name="head_joint" type="revolute">
+        <parent link="neck_link"/>
+        <child link="head_link"/>
+        <origin xyz="0.02443 -0.015 0.009" rpy="0 0 0"/>
+        <limit lower="-1.57" upper="1.57" effort="0.05" velocity="0.005"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <joint name="eye_left_joint" type="fixed">
+        <parent link="head_link"/>
+        <child link="eye_left_link"/>
+        <origin xyz="0.0095 0.008 0.0115" rpy="0 0 0"/>
+    </joint>
+
+    <joint name="eye_right_joint" type="fixed">
+        <parent link="head_link"/>
+        <child link="eye_right_link"/>
+        <origin xyz="0.0095 -0.008 0.0115" rpy="0 0 0"/>
+    </joint>
+
+
+    <!-- * * * Joint actuator controllers * * * -->
+
+    <transmission name="arm_left_joint_1_controller">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="arm_left_joint_1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="arm_left_joint_1_actuator">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="arm_left_joint_2_controller">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="arm_left_joint_2">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="arm_left_joint_2_actuator">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="arm_left_joint_3_controller">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="arm_left_joint_3">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="arm_left_joint_3_actuator">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="arm_left_joint_4_controller">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="arm_left_joint_4">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="arm_left_joint_4_actuator">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="arm_left_joint_5_controller">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="arm_left_joint_5">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="arm_left_joint_5_actuator">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="arm_left_joint_6_controller">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="arm_left_joint_6">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="arm_left_joint_6_actuator">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="arm_left_joint_7_controller">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="arm_left_joint_7">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="arm_left_joint_7_actuator">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="arm_right_joint_1_controller">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="arm_right_joint_1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="arm_right_joint_1_actuator">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="arm_right_joint_2_controller">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="arm_right_joint_2">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="arm_right_joint_2_actuator">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="arm_right_joint_3_controller">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="arm_right_joint_3">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="arm_right_joint_3_actuator">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="arm_right_joint_4_controller">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="arm_right_joint_4">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="arm_right_joint_4_actuator">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="arm_right_joint_5_controller">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="arm_right_joint_5">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="arm_right_joint_5_actuator">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="arm_right_joint_6_controller">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="arm_right_joint_6">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="arm_right_joint_6_actuator">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="arm_right_joint_7_controller">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="arm_right_joint_7">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="arm_right_joint_7_actuator">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="leg_left_joint_1_controller">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="leg_left_joint_1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="leg_left_joint_1_actuator">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="leg_left_joint_2_controller">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="leg_left_joint_2">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="leg_left_joint_2_actuator">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="leg_left_joint_3_controller">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="leg_left_joint_3">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="leg_left_joint_3_actuator">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="leg_left_joint_4_controller">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="leg_left_joint_4">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="leg_left_joint_4_actuator">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="leg_left_joint_5_controller">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="leg_left_joint_5">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="leg_left_joint_5_actuator">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="leg_right_joint_1_controller">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="leg_right_joint_1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="leg_right_joint_1_actuator">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="leg_right_joint_2_controller">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="leg_right_joint_2">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="leg_right_joint_2_actuator">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="leg_right_joint_3_controller">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="leg_right_joint_3">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="leg_right_joint_3_actuator">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="leg_right_joint_4_controller">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="leg_right_joint_4">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="leg_right_joint_4_actuator">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="leg_right_joint_5_controller">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="leg_right_joint_5">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="leg_right_joint_5_actuator">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="body_joint_controller">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="body_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="body_joint_actuator">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="neck_joint_controller">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="neck_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="neck_joint_actuator">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="head_joint_controller">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="head_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="head_joint_actuator">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+
+</robot>
